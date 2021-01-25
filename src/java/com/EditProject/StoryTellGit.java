@@ -11,4 +11,7 @@ public class StoryTellGit {
 // Putri Nabila Hapsari
 // Sukma Hasnaa Ambaroh
 //  This project is made to make it easier for users to write their diaries which can be shared and then the story can viewed and like by other users
+
+	//Putri was edited this file
+
 }
