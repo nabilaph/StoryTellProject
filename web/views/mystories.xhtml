@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--Ini Page Buat Public Stories-->
+<!--Method bean nya ada di kelas StoriesBean.JAVA-->
+<!--Sama aja kaya public stories tapi dia nge-fetch yang punya user yang login saat ini doang-->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>My Stories</title>
+
+        <ui:include src="/views/layouts/index_style.xhtml"/>
+
+    </h:head>
+    <h:body>
+
+        <ui:include src="/views/layouts/navbar.xhtml"/>
+
+
+        <div class="mt-2 p-2 container">
+            <h1 class="text-center">My Stories</h1>
+            <hr />
+
+            <h:form>
+
+                <div class="card-columns container mt-5">
+
+                    <h:form>
+
+
+                        <ui:repeat value="#{storiesBean.fetchPersonalDiaries()}" var="diary">
+
+
+                            <div class="card border shadow border-primary text-center rounded">
+                                <div class="card-header bg-primary">Story</div>
+                                <div class="card-body">
+                                    <div class="d-flex text-center flex-row justify-content-center align-items-center">
+                                        <h5 class="card-title">#{diary.title}</h5>
+                                        <img class="icon ml-2" src="../resources/images/likeicon.png"/>
+                                        <p class="text-muted ml-1">#{diary.diarylikes.size()}</p>
+                                    </div>
+                                    <hr />
+                                    <h6 class="text-center">#{diary.text}</h6>
+                                    <hr />
+                                    <div class="d-flex text-center flex-row justify-content-center align-items-center">
+                                        <h6 class="text-muted">Terakhir diupdate Pada: #{diary.date}</h6>
+                                        <h6 class="ml-2 text-muted">Oleh: #{diary.user.username}</h6>
+                                    </div>
+                                    <hr />
+                                    <div class="btn-group" role="group">
+                                        <h:commandButton action="./updatestory.xhtml" class="btn btn-outline-warning" value="Update">
+                                            <f:actionListener binding="#{storiesBean.setDiary(diary)}"/>
+                                        </h:commandButton>
+                                        <h:commandButton value="Like" actionListener="#{likesBean.like(diary)}" class="btn btn-outline-danger" />
+                                        <h:commandButton actionListener="#{storiesBean.deleteDiary(diary)}" class="btn btn-outline-primary" value="Hapus"/>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </ui:repeat>
+
+                    </h:form>
+
+
+                </div>
+
+            </h:form>
+            <router-link to="/create">
+                <Fab />
+            </router-link>
+            <div
+                class="modal fade"
+                tabindex="-1"
+                id="loginModal"
+                data-keyboard="false"
+                data-backdrop="static"
+                >
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                &times;
+                            </button>
+                        </div>
+                        <div
+                            id="mdDiv"
+                            class="modal-body overflow-auto text-left mdDiv"
+                            v-html="waMD"
+                            ></div>
+                        <div class="modal-footer">
+                            <button
+                                type="submit"
+                                class="btn btn-primary"
+                                >
+                                Copy
+                            </button>
+                            <button
+                                type="button"
+                                id="btnHideModal"
+                                class="btn btn-primary"
+                                >
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ui:include src="/views/layouts/fab.xhtml"/>
+        </div>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous"/>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    </h:body>
+</html>
+

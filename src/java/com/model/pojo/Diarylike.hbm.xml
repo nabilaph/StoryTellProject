@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 26, 2020 11:10:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.model.pojo.Diarylike" table="diarylike" catalog="diarysukma" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="diary" class="com.model.pojo.Diary" fetch="select">
+            <column name="diary_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="com.model.pojo.User" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

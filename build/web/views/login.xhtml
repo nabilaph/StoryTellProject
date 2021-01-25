@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--Ini Page Buat Login-->
+<!--Bean nya ada di UserBean.JAVA-->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Login</title>
+
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!--===============================================================================================-->	
+        <link rel="icon" type="image/png" href="../resources/images/icons/favicon.ico"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../resources/vendor/bootstrap/css/bootstrap.min.css"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../resources/fonts/Linearicons-Free-v1.0.0/icon-font.min.css"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../resources/vendor/animate/animate.css"/>
+        <!--===============================================================================================-->	
+        <link rel="stylesheet" type="text/css" href="../resources/vendor/css-hamburgers/hamburgers.min.css"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../resources/vendor/animsition/css/animsition.min.css"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../resources/vendor/select2/select2.min.css"/>
+        <!--===============================================================================================-->	
+        <link rel="stylesheet" type="text/css" href="../resources/vendor/daterangepicker/daterangepicker.css"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../resources/css/util.css"/>
+        <link rel="stylesheet" type="text/css" href="../resources/css/main.css"/>
+        <!--===============================================================================================-->
+    </h:head>
+
+    <h:body>
+
+        <div class="limiter">
+            <div class="container-login100">
+                <div class="wrap-login100">
+                    <form class="login100-form validate-form">
+                        <span class="login100-form-title p-b-34">
+                            Account Login
+                        </span>
+
+                        <h:form>
+
+                            <!--Ini buat nginput username, nama variable nya itu user ada nya di UserBean.JAVA-->
+
+                            <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-10" data-validate="Type user name">
+                                <h:inputText class="input50" value="#{userBean.user.username}"/>
+
+                                <span class="focus-input100"></span>
+                            </div>
+
+                            <!--Ini buat nginput password, nama variable nya itu user ada nya di UserBean.JAVA-->
+
+                            <div class="wrap-input100 rs2-wrap-input100 validate-input m-b-10" data-validate="Type password">
+                                <h:inputSecret class="input50" value="#{userBean.user.password}"/><br/><br/>
+                                <span class="focus-input100"></span>
+                            </div>
+
+                            <!--Ini buat button login nya, method nya ada nya di UserBean.JAVA-->
+                            
+                            <div class="container-login100-form-btn">
+                                <h:commandButton value="Login" class="login100-form-btn" action="#{userBean.login()}"/>&nbsp;
+                            </div>
+                            
+                            <!--Ini buat nge redirect ke signup.xhtml-->
+                            
+                            <div class="w-full text-center">
+                                <a href="./signup.xhtml" class="txt3">
+                                    Sign Up
+                                </a>
+                            </div>
+                            <div class="w-full text-center mt-4">
+                                <h:messages id="globalLogin" class="text-center text-danger"/>
+                            </div>
+
+                        </h:form> 
+                    </form>
+
+                    <div class="login100-more" style="background-image: url('../resources/images/myjournal.png');"></div>
+                </div>
+            </div>
+        </div>
+
+    </h:body>
+
+</html>
+

@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--SIngle Story page ini dipanngil pas user nge klik tombol lihat di page index.xhtml, jadi di page ini dia gabisa update2 story orang-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Lihat Story</title>
+
+        <ui:include src="/views/layouts/index_style.xhtml"/>
+    </h:head>
+
+    <h:body>
+
+        <ui:include src="/views/layouts/navbar.xhtml"/>
+
+
+        <div
+            class="mt-4 container d-flex justify-content-center flex-column w-50 needs-validation"
+            >
+            <h:form>
+
+                <h5 class="text-left mb-4">Detail Story</h5>
+                <div class="text-left">
+                    <label for="sessionName">Judul Diary</label>
+                </div>
+                
+                <!--Input text ini di disabled jadi gabisa di edit-->
+                
+                <p:inputText
+                    type="text"
+                    id="sessionName"
+                    class="form-control mb-4"
+                    required="true"
+                    value="#{storiesBean.diary.title}"
+                    disabled="true"
+                    />
+                <div class="text-left">
+                    <label for="sessionName">Isi Diary</label>
+                </div>
+                
+                <!--Input text ini di disabled jadi gabisa di edit-->
+                
+                <p:inputTextarea
+                    rows="10" cols="50"
+                    class="form-control mb-4 input-lg"
+                    required="true"
+                    value="#{storiesBean.diary.text}"
+                    disabled="true"
+                    />
+                
+                <h:inputHidden
+                    value="#{storiesBean.diary.id}"
+                    />
+                
+                                        <a href="./index.xhtml" type="button" class="btn btn-warning btn-block btn-lg">
+                            Kembali
+                        </a>
+
+            </h:form>
+
+        </div>
+
+
+
+
+
+    </h:body>
+
+</html>
+

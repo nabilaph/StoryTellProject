@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--Ini Page Buat Create Story-->
+<!--Method bean nya ada di kelas StoriesBean.JAVA-->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Create Stories</title>
+
+        <ui:include src="/views/layouts/index_style.xhtml"/>
+    </h:head>
+    <h:body>
+
+
+        <ui:include src="/views/layouts/navbar.xhtml"/>
+
+        <h:form>
+            <div
+                class="mt-4 container d-flex justify-content-center flex-column w-50 needs-validation"
+                >
+                <h5 class="text-left mb-4">Detail Story</h5>
+                <div class="text-left">
+                    <label for="sessionName">Judul Diary</label>
+                </div>
+                
+                <!--Ini input text diary nya ada, pake variable diary di kelas StoriesBean.JAVA-->
+                
+                <p:inputText
+                    type="text"
+                    id="sessionName"
+                    class="form-control mb-4"
+                    placeholder="Judul Diary"
+                    required="true"
+                    value="#{storiesBean.diary.title}"
+                    />
+                
+                <div class="text-left">
+                    <label for="sessionName">Isi Diary</label>
+                </div>
+                
+                <!--Ini input text diary nya ada, pake variable diary di kelas StoriesBean.JAVA-->
+                
+                <p:inputTextarea
+                    rows="10" cols="50"
+                    class="form-control mb-4 input-lg"
+                    placeholder="Isi Diary"
+                    required="true"
+                    value="#{storiesBean.diary.text}"
+                    />
+                <div class="row mt-4">
+                    <div class="col-md-6 mb-3">
+                        
+                        <!--Ini Buat Balik Ke index.xhtml-->
+                        
+                        <a href="./index.xhtml" type="button" class="btn btn-warning btn-block btn-lg">
+                            Kembali
+                        </a>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        
+                        <!--Ini Manggil Method Bean Create Story Nya-->
+                        
+                        <h:commandButton class="btn btn-primary btn-block btn-lg" actionListener="#{storiesBean.createStory()}" value="Publish"/>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+
+    </h:body>
+</html>
+
