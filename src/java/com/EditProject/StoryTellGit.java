@@ -14,4 +14,7 @@ public class StoryTellGit {
 
 	//Putri was edited this file
 
+public static void main(String []args){
+}
+
 }
