@@ -1,7 +1,10 @@
 newest commit 
 
+commit baru nih
+
 // In github StoryTellProject we have branch which is master and Edit
 
 
+ini bia loh
 //This github have 3 branch which is main, master and Edit
 // try to edit

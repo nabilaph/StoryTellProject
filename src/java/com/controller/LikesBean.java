@@ -14,10 +14,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author arkan481
- */
+
 @ManagedBean
 @RequestScoped
 public class LikesBean {
