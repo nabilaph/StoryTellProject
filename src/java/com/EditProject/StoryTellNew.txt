@@ -1,11 +1,7 @@
 newest commit 
 
-<<<<<<< HEAD
 // In github StoryTellProject we have branch which is master and Edit
-=======
 
-ini bia loh
->>>>>>> 271128ac99bf246def5d33717a510151025a2080
 
 //This github have 3 branch which is main, master and Edit
 // try to edit
